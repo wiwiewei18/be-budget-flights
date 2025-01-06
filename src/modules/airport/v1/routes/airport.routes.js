@@ -13,4 +13,6 @@ router
   .post(authController.protect, airportController.createAirport)
   .get(authController.protect, airportController.getAirportList);
 
+router.route("/:id").get(authController.protect, airportController.getAirport);
+
 module.exports = router;

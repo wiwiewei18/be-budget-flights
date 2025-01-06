@@ -26,6 +26,10 @@ class AirportService {
 
     return await Promise.all([paginatedAirportList, count]);
   };
+
+  getAirport = async (req) => {
+    return await this.airportModel.findById(req.params.id);
+  };
 }
 
 module.exports = AirportService;

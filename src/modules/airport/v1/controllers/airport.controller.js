@@ -25,6 +25,16 @@ class AirportController extends BaseController {
 
     this.ok(res, "Airport list fetched successfully", { airportList, count });
   });
+
+  getAirport = AsyncErrorHandler(async (req, res) => {
+    const airport = await this.airportServices.getAirport(req);
+
+    if (!airport) {
+      return this.notFound(res);
+    }
+
+    this.ok(res, "Airport fetched successfully", { airport });
+  });
 }
 
 module.exports = AirportController;
