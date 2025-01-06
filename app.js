@@ -7,6 +7,7 @@ const xss = require("xss-clean");
 const authRouter = require("./src/modules/auth/v1/routes/auth.routes");
 const userRouter = require("./src/modules/user/v1/routes/user.routes");
 const airportRouter = require("./src/modules/airport/v1/routes/airport.routes");
+const ticketRouter = require("./src/modules/ticket/v1/routes/ticket.routes");
 
 const ErrorController = require("./src/common/controllers/error.controller");
 const errorController = new ErrorController();
@@ -29,6 +30,7 @@ app.use(xss());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/airport", airportRouter);
+app.use("/api/v1/ticket", ticketRouter);
 
 app.all("*", errorController.handleNotFoundRoute);
 
