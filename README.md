@@ -1,8 +1,8 @@
-# Node.js Base Code
+# Flight Finder API
 
 ## Introduction
 
-This Node.js base code project provides a foundation for building server-side applications using Node.js. It implements the **Model-View-Controller-Service (MVCS)** architecture to ensure modularity, scalability, and maintainability. The structure is designed to separate concerns, making the application easier to understand and extend.
+The **Flight Finder API** is a backend application that helps users find the cheapest flight route between two airports. Built with **Node.js**, this project includes APIs for managing airports, flights, and finding optimal routes using Dijkstra's algorithm. The application ensures modularity and scalability through the **Model-View-Controller-Service (MVCS)** architecture.
 
 ## Table of Contents
 
@@ -22,8 +22,8 @@ This Node.js base code project provides a foundation for building server-side ap
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/wiwiewei18/be-mvcs-basecode.git
-   cd be-mvcs-basecode
+   git clone https://github.com/wiwiewei18/be-budget-flights.git
+   cd be-budget-flights
    ```
 
 2. **Install dependencies:**
@@ -57,11 +57,14 @@ This Node.js base code project provides a foundation for building server-side ap
 
 ## Features
 
-- **MVCS Architecture:** Organized into Models, Views, Controllers, and Services for better separation of concerns.
-- **Modular Code Structure:** Facilitates scalability and maintainability.
-- **Basic Error Handling:** Centralized error handling for better debugging.
-- **Sample Routes:** Predefined routes for typical use cases.
-- **Environment Configurations:** Easy management of environment variables.
+- **CRUD API for Airports:**
+  - Add, update, view, and delete airports.
+- **CRUD API for Flights:**
+  - Manage flights with ticket prices and details.
+- **Cheapest Route Finder:**
+  - Fetch the cheapest route between two airports using Dijkstra's algorithm.
+- **Scalable MVCS Architecture:**
+  - Organized into Models, Views, Controllers, and Services for modular development.
 
 ## Architecture
 
