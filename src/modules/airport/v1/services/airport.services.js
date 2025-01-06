@@ -58,6 +58,13 @@ class AirportService {
       runValidators: true,
     });
   };
+
+  softDeleteAirport = async (req) => {
+    return this.airportModel.findByIdAndUpdate(req.params.id, {
+      deleted: true,
+      deletedAt: Date.now(),
+    });
+  };
 }
 
 module.exports = AirportService;

@@ -45,6 +45,16 @@ class AirportController extends BaseController {
 
     this.ok(res, "Airport updated successfully", { airport });
   });
+
+  deleteAirport = AsyncErrorHandler(async (req, res) => {
+    const airport = await this.airportServices.softDeleteAirport(req);
+
+    if (!airport) {
+      return this.notFound(res);
+    }
+
+    this.ok(res, "Airport deleted successfully");
+  });
 }
 
 module.exports = AirportController;
