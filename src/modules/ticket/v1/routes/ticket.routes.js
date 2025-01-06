@@ -14,6 +14,7 @@ router
     authController.protect,
     authController.restrict("admin"),
     ticketController.createTicket
-  );
+  )
+  .get(authController.protect, ticketController.getTicketList);
 
 module.exports = router;
