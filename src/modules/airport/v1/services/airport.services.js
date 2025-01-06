@@ -1,4 +1,6 @@
 const Airport = require("../models/airport.model");
+const HttpStatusCode = require("../../../../common/constants/HttpStatusCode");
+const CustomError = require("../../../../common/utils/CustomError");
 const Pagination = require("../../../../common/utils/Pagination");
 
 class AirportService {
@@ -28,7 +30,33 @@ class AirportService {
   };
 
   getAirport = async (req) => {
-    return await this.airportModel.findById(req.params.id);
+    return this.airportModel.findById(req.params.id);
+  };
+
+  #validatePatchAirportRequest = (req) => {
+    const patchAbleFields = ["name", "country", "city"];
+
+    const toPatchfields = Object.keys(req.body);
+
+    for (const field of toPatchfields) {
+      if (!patchAbleFields.includes(field)) {
+        throw new CustomError(
+          HttpStatusCode.BAD_REQUEST,
+          `${field} is not allowed to be updated`
+        );
+      }
+    }
+
+    return;
+  };
+
+  patchAirport = async (req) => {
+    this.#validatePatchAirportRequest(req);
+
+    return this.airportModel.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
   };
 }
 
