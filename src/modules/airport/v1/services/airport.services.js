@@ -1,4 +1,4 @@
-const Airport = require("../models/airport.model");
+const Airport = require("../../../../common/models/airport.model");
 const HttpStatusCode = require("../../../../common/constants/HttpStatusCode");
 const CustomError = require("../../../../common/utils/CustomError");
 const Pagination = require("../../../../common/utils/Pagination");
