@@ -8,6 +8,9 @@ const airportController = new AirportController();
 
 const router = express.Router();
 
-router.route("/").post(authController.protect, airportController.createAirport);
+router
+  .route("/")
+  .post(authController.protect, airportController.createAirport)
+  .get(authController.protect, airportController.getAirportList);
 
 module.exports = router;
