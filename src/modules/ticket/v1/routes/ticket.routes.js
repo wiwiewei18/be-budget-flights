@@ -17,6 +17,13 @@ router
   )
   .get(authController.protect, ticketController.getTicketList);
 
-router.route("/:id").get(authController.protect, ticketController.getTicket);
+router
+  .route("/:id")
+  .get(authController.protect, ticketController.getTicket)
+  .patch(
+    authController.protect,
+    authController.restrict("admin"),
+    ticketController.patchTicket
+  );
 
 module.exports = router;
