@@ -24,6 +24,11 @@ router
     authController.protect,
     authController.restrict("admin"),
     ticketController.patchTicket
+  )
+  .delete(
+    authController.protect,
+    authController.restrict("admin"),
+    ticketController.deleteTicket
   );
 
 module.exports = router;

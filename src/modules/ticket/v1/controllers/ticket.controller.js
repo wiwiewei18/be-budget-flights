@@ -63,6 +63,16 @@ class TicketController extends BaseController {
 
     this.ok(res, "Ticket updated successfully", { ticket });
   });
+
+  deleteTicket = AsyncErrorHandler(async (req, res) => {
+    const ticket = await this.ticketServices.softDeleteTicket(req);
+
+    if (!ticket) {
+      return this.notFound(res);
+    }
+
+    this.ok(res, "Ticket deleted successfully");
+  });
 }
 
 module.exports = TicketController;

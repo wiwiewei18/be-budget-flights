@@ -63,6 +63,13 @@ class TicketService {
       runValidators: true,
     });
   };
+
+  softDeleteTicket = async (req) => {
+    return this.ticketModel.findByIdAndUpdate(req.params.id, {
+      deleted: true,
+      deletedAt: Date.now(),
+    });
+  };
 }
 
 module.exports = TicketService;
