@@ -17,4 +17,6 @@ router
   )
   .get(authController.protect, ticketController.getTicketList);
 
+router.route("/:id").get(authController.protect, ticketController.getTicket);
+
 module.exports = router;

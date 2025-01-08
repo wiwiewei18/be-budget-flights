@@ -23,6 +23,10 @@ class TicketService {
 
     return await Promise.all([paginatedTicketList, count]);
   };
+
+  getTicket = async (req) => {
+    return this.ticketModel.findById(req.params.id);
+  };
 }
 
 module.exports = TicketService;

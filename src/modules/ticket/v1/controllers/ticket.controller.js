@@ -43,6 +43,16 @@ class TicketController extends BaseController {
 
     this.ok(res, "Ticket list fetched successfully", { ticketList, count });
   });
+
+  getTicket = AsyncErrorHandler(async (req, res) => {
+    const ticket = await this.ticketServices.getTicket(req);
+
+    if (!ticket) {
+      return this.notFound(res);
+    }
+
+    this.ok(res, "Ticket fetched successfully", { ticket });
+  });
 }
 
 module.exports = TicketController;
