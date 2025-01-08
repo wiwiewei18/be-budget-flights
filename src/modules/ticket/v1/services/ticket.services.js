@@ -18,7 +18,7 @@ class TicketService {
       .sort()
       .select()
       .filter()
-      .search(["departureAirport", "arrivalAirport"])
+      .search(["flightNumber", "airline"])
       .run();
 
     return await Promise.all([paginatedTicketList, count]);
